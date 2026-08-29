@@ -1,4 +1,5 @@
 import SnippetForm from '@/components/snippets/SnippetForm'
+import SnippetList from '@/components/snippets/SnippetList'
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-8 text-center">📚 Snippet Library</h1>
       <div className="max-w-4xl mx-auto flex flex-col gap-8">
         <SnippetForm />
+        <SnippetList />
       </div>
     </main>
   )
