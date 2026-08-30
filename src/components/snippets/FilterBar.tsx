@@ -20,8 +20,11 @@ export function FilterBar({
   uniqueLangs,
 }: FilterBarProps) {
   return (
-    <div className="p-4 bg-gray-900 border border-gray-800 rounded-xl flex flex-wrap gap-4 items-center">
-      <span className="font-semibold text-gray-400 text-sm">Filtrar:</span>
+    <fieldset className="p-4 bg-gray-900 border border-gray-800 rounded-xl flex flex-wrap gap-4 items-center">
+      <legend className="sr-only">Filtrar snippets por favoritos, etiqueta o lenguaje</legend>
+      <span aria-hidden="true" className="font-semibold text-gray-400 text-sm">
+        Filtrar:
+      </span>
 
       <button
         onClick={() => setFilterFav(!filterFav)}
@@ -36,9 +39,7 @@ export function FilterBar({
         {filterFav ? '★ Favoritos' : '☆ Todos'}
       </button>
 
-      <label htmlFor="filterTag" className="sr-only">
-        Filtrar por etiqueta
-      </label>
+      <label htmlFor="filterTag" className="sr-only">Filtrar por etiqueta</label>
       <input
         id="filterTag"
         type="text"
@@ -48,9 +49,7 @@ export function FilterBar({
         className="bg-gray-800 border border-gray-700 text-white px-3 py-1.5 rounded-lg text-sm outline-none focus:border-indigo-500"
       />
 
-      <label htmlFor="filterLang" className="sr-only">
-        Filtrar por lenguaje
-      </label>
+      <label htmlFor="filterLang" className="sr-only">Filtrar por lenguaje</label>
       <select
         id="filterLang"
         value={filterLang}
@@ -59,11 +58,9 @@ export function FilterBar({
       >
         <option value="">Todos los lenguajes</option>
         {uniqueLangs.map((lang) => (
-          <option key={lang} value={lang}>
-            {lang}
-          </option>
+          <option key={lang} value={lang}>{lang}</option>
         ))}
       </select>
-    </div>
+    </fieldset>
   )
 }

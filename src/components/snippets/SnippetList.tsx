@@ -68,10 +68,15 @@ export default function SnippetList() {
     <div className="flex flex-col gap-6">
       <FilterBar {...filterBarProps} />
 
-      <div className="grid grid-cols-1 gap-4">
+      <p role="status" aria-live="polite" className="sr-only">
+        Mostrando {filteredSnippets.length} de {snippets.length} snippets
+      </p>
+
+      <ul role="list" className="grid grid-cols-1 gap-4 list-none p-0 m-0">
         {filteredSnippets.map((snippet) => (
-          <div
+          <li
             key={snippet.id}
+            role="listitem"
             className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-neutral-700 transition-all"
           >
             <div className="flex justify-between items-start">
@@ -88,7 +93,7 @@ export default function SnippetList() {
                   aria-pressed={snippet.favorite}
                   className={snippet.favorite ? 'text-yellow-400' : 'text-gray-600 hover:text-gray-400'}
                 >
-                  <Star size={18} fill={snippet.favorite ? 'currentColor' : 'none'} />
+                  <Star size={18} fill={snippet.favorite ? 'currentColor' : 'none'} aria-hidden="true" />
                 </button>
                 <button
                   onClick={() => handleCopy(snippet.id, snippet.code)}
@@ -96,15 +101,14 @@ export default function SnippetList() {
                     copiedId === snippet.id ? 'text-green-400' : 'text-gray-400 hover:text-white'
                   }`}
                   aria-label={`Copiar código de ${snippet.title}`}
-                  title="Copiar código"
                 >
                   {copiedId === snippet.id ? (
                     <>
-                      <Check size={16} />
+                      <Check size={16} aria-hidden="true" />
                       <span>¡Copiado!</span>
                     </>
                   ) : (
-                    <Copy size={16} />
+                    <Copy size={16} aria-hidden="true" />
                   )}
                 </button>
                 <button
@@ -112,7 +116,7 @@ export default function SnippetList() {
                   aria-label={`Eliminar snippet ${snippet.title}`}
                   className="text-gray-600 hover:text-red-500"
                 >
-                  <Trash2 size={18} />
+                  <Trash2 size={18} aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -133,9 +137,9 @@ export default function SnippetList() {
                 ))}
               </div>
             )}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }
