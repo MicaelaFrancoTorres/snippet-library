@@ -13,6 +13,7 @@ hljs.registerLanguage('typescript', typescript)
 hljs.registerLanguage('xml', xml)
 hljs.registerLanguage('css', css)
 hljs.registerLanguage('python', python)
+hljs.configure({ ignoreUnescapedHTML: true })
 
 function normalizeLanguage(language: string): string | null {
   const map: Record<string, string> = {
