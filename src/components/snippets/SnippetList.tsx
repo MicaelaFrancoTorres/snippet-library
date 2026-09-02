@@ -35,11 +35,12 @@ export default function SnippetList() {
     const matchTag = filterTag
       ? snippet.tags.some((tag) => tag.toLowerCase().includes(filterTag.toLowerCase()))
       : true
-    const q = searchQuery.toLowerCase()
-    const matchSearch =
-      snippet.title.toLowerCase().includes(q) ||
-      snippet.description.toLowerCase().includes(q) ||
-      snippet.code.toLowerCase().includes(q)
+      const normalize = (text: string) => text.toLowerCase().replace(/\s+/g, ' ').trim()
+      const q = normalize(searchQuery)
+      const matchSearch =
+      normalize(snippet.title).includes(q) ||
+      normalize(snippet.description).includes(q) ||
+      normalize(snippet.code).includes(q)
     return matchLang && matchFav && matchTag && matchSearch
   })
 
