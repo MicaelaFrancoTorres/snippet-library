@@ -11,7 +11,6 @@ etiquetas, favoritos y copia rápida. Migrada de React + Vite a **Next.js 16**
 | Integrante | Desafío | Rama |
 |---|---|---|
 | Brandon Velasquez | D1 — Base: scaffold de Next.js, store con Zustand y fix de hidratación SSR | `feature/store-base` |
-| Melina Ricaldez | D2 — Formulario de carga con validación accesible | `feature/snippet-form` |
 | Mayra Limachi | D3 — Lista de snippets, filtros, favoritos, copiar y resaltado de sintaxis | `feature/snippet-list-filters` |
 | Micaela Sofía Franco Torres | D4 — Buscador, SEO/metadata y optimización | `feature/search-bar`, `feature/seo-metadata`, `perf/next-optimizations` |
 | Noelia Brandan | D5 — Corrección de bugs y accesibilidad (ARIA, semántica HTML) | `fix/accessibility-and-bugs` |
@@ -102,11 +101,6 @@ Ver detalle completo en [`OPTIMIZATIONS.md`](./OPTIMIZATIONS.md). En resumen:
   y `next/font` no aplican en esta migración (documentado con el porqué)
 
 ---
-
-## 🎁 Funcionalidad extra
-
-_(Pendiente — se documentará acá si el grupo decide sumar alguna funcionalidad
-opcional antes de la entrega final)._
 
 ---
 
